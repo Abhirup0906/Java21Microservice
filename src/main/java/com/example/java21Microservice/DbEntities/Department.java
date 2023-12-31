@@ -1,13 +1,16 @@
 package com.example.java21Microservice.DbEntities;
 
+
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import java.sql.Date;
 
-@Entity()
+@Entity
+@Data
 @Table(name = "Department", schema = "HumanResources")
 @DynamicInsert
 @DynamicUpdate
