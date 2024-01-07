@@ -1,12 +1,15 @@
 package com.example.java21Microservice.DbEntities;
 
 import jakarta.persistence.*;
+import jakarta.persistence.metamodel.StaticMetamodel;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
+import java.io.Serializable;
 import java.sql.Date;
+import java.util.Set;
 
 @Entity
 @Table(name = "Employee", schema = "HumanResources")
@@ -14,7 +17,7 @@ import java.sql.Date;
 @DynamicUpdate
 @Getter
 @Setter
-public class Employee {
+public class Employee implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,4 +56,14 @@ public class Employee {
 
     @Column(name = "CurrentFlag")
     boolean current;
+
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    Set<EmployeeDepartmentHistory> employeeDepartmentHistorySet;
+
+    @OneToOne
+    @JoinColumn(name = "BusinessEntityID")
+    Person person;
+
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    Set<EmployeePayHistory> employeePayHistorySet;
 }

@@ -35,7 +35,6 @@ public class CommandConfig {
     }
 
     @Bean(name = "commandManagerFactory")
-    @Primary
     public LocalContainerEntityManagerFactoryBean commandManagerFactory() {
         LocalContainerEntityManagerFactoryBean em
                 = new LocalContainerEntityManagerFactoryBean();
@@ -51,7 +50,6 @@ public class CommandConfig {
         return em;
     }
 
-    @Primary
     @Bean(name = "commandTransactionManager")
     public PlatformTransactionManager commandTransactionManager() {
 

@@ -38,5 +38,13 @@ public class EmployeeDepartmentHistory implements Serializable {
     @Null
     @Column(name = "EndDate")
     Date endDate;
+
+    @ManyToOne
+    @JoinColumn(name = "DepartmentID")
+    Department department;
+
+    @ManyToOne
+    @JoinColumn(name = "BusinessEntityID")
+    Employee employee;
 }
 

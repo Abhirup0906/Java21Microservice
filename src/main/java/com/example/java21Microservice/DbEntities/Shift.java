@@ -1,15 +1,14 @@
 package com.example.java21Microservice.DbEntities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
+import java.io.Serializable;
 import java.sql.Time;
+import java.util.Set;
 
 @Entity
 @Table(name = "Shift", schema = "HumanResources")
@@ -17,8 +16,7 @@ import java.sql.Time;
 @DynamicUpdate
 @Getter
 @Setter
-public class Shift {
-
+public class Shift implements Serializable {
     @Id
     @Column(name = "ShiftID")
     short shiftId;

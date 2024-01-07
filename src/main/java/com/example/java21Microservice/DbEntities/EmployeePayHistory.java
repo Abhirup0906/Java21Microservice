@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 @Entity
@@ -15,7 +16,7 @@ import java.sql.Date;
 @DynamicUpdate
 @Getter
 @Setter
-public class EmployeePayHistory {
+public class EmployeePayHistory implements Serializable {
 
     @Id
     @Column(name = "BusinessEntityID")
@@ -30,5 +31,9 @@ public class EmployeePayHistory {
 
     @Column(name = "PayFrequency")
     short payFrequency;
+
+    @ManyToOne
+    @JoinColumn(name = "BusinessEntityID")
+    Employee employee;
 }
 

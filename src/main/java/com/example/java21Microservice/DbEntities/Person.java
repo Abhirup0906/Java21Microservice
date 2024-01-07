@@ -1,14 +1,13 @@
 package com.example.java21Microservice.DbEntities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.Null;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+
+import java.io.Serializable;
 
 @Entity
 @Table(name = "Person", schema = "Person")
@@ -16,7 +15,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicUpdate
 @Getter
 @Setter
-public class Person {
+public class Person implements Serializable {
 
     @Id
     @Column(name = "BusinessEntityID")
@@ -42,4 +41,7 @@ public class Person {
     @Null
     @Column(name = "Suffix")
     String suffix;
+
+    @OneToOne(mappedBy = "person", fetch = FetchType.LAZY)
+    Employee employee;
 }
