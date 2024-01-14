@@ -8,7 +8,6 @@ import org.hibernate.annotations.DynamicUpdate;
 
 import java.io.Serializable;
 import java.sql.Time;
-import java.util.Set;
 
 @Entity
 @Table(name = "Shift", schema = "HumanResources")

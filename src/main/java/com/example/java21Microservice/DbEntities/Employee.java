@@ -1,7 +1,6 @@
 package com.example.java21Microservice.DbEntities;
 
 import jakarta.persistence.*;
-import jakarta.persistence.metamodel.StaticMetamodel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;

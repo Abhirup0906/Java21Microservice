@@ -33,7 +33,7 @@ public class EmployeeRepositoryImpl extends BaseRepo<Employee, Integer> implemen
 
         Root<Employee> root = empQuery.from(Employee.class);
         Join<Employee, Person> person = root.join(Employee_.person);
-        //ParameterExpression<Long> value = builder.parameter(Long.class);
+
         empQuery.select(builder.construct(EmployeeDetails.class,
                 root.get(Employee_.employeeId),
                 person.get(Person_.personType),
@@ -42,8 +42,7 @@ public class EmployeeRepositoryImpl extends BaseRepo<Employee, Integer> implemen
                 root.get(Employee_.gender),
                 root.get(Employee_.hireDate)))
                 .where(builder.equal(root.get(Employee_.JOB_TITLE), request.jobTitle()));
-        //TypedQuery<Contact> query = em.createQuery(contactQuery);
-        //query.setParameter(value, id);
+
         return entityManager.createQuery(empQuery).getResultList();
     }
 

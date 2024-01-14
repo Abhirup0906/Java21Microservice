@@ -1,7 +1,6 @@
 package com.example.java21Microservice.DbEntities;
 
 
-import com.example.java21Microservice.ResponseModel.EmployeeDepartment;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;

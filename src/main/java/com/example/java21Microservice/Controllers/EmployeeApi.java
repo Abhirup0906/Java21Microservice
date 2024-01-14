@@ -1,12 +1,9 @@
 package com.example.java21Microservice.Controllers;
 
 import com.example.java21Microservice.AR.AbstractBaseAr;
-import com.example.java21Microservice.DbEntities.Employee;
-import com.example.java21Microservice.Repositories.Query.EmployeeRepository;
 import com.example.java21Microservice.Request.GetEmployeeDetails;
 import com.example.java21Microservice.Request.GetEngineerByType;
 import com.example.java21Microservice.ResponseModel.EmployeeDetails;
-import jakarta.validation.constraints.Null;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

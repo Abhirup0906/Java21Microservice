@@ -1,7 +1,6 @@
 package com.example.java21Microservice.DbEntities;
 
 import lombok.AllArgsConstructor;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
