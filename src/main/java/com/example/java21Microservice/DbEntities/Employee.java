@@ -2,6 +2,7 @@ package com.example.java21Microservice.DbEntities;
 
 import jakarta.persistence.*;
 import jakarta.persistence.metamodel.StaticMetamodel;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicInsert;
@@ -15,8 +16,8 @@ import java.util.Set;
 @Table(name = "Employee", schema = "HumanResources")
 @DynamicInsert
 @DynamicUpdate
-@Getter
-@Setter
+@Getter(value = AccessLevel.PUBLIC)
+@Setter(value = AccessLevel.PUBLIC)
 public class Employee implements Serializable {
 
     @Id

@@ -4,6 +4,8 @@ import com.example.java21Microservice.DbEntities.Employee;
 import com.example.java21Microservice.DbEntities.Employee_;
 import com.example.java21Microservice.DbEntities.Person;
 import com.example.java21Microservice.DbEntities.Person_;
+import com.example.java21Microservice.Request.GetEmployeeDetails;
+import com.example.java21Microservice.Request.GetEngineerByType;
 import com.example.java21Microservice.ResponseModel.EmployeeDepartment;
 import com.example.java21Microservice.ResponseModel.EmployeeDetails;
 import jakarta.persistence.EntityManager;
@@ -21,7 +23,7 @@ import java.util.List;
 @NoRepositoryBean
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
 
-    List<Employee> getDevelopmentEngineer();
-    List<EmployeeDetails> getEmployeeDetails();
+    List<EmployeeDetails> getEngineerByType(GetEngineerByType request);
+    List<EmployeeDetails> getEmployeeDetails(GetEmployeeDetails request);
 
 }
