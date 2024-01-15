@@ -13,7 +13,7 @@ public class GetEngineerByTypeValidator extends AbstractValidator<GetEngineerByT
         setPropertyOnContext(GetEngineerByType.class.getName());
 
         ruleFor(GetEngineerByType::jobTitle).must((x) -> {
-            return true;
+            return !x.trim().isEmpty();
         }).withMessage("Job Title is not valid");
     }
 }

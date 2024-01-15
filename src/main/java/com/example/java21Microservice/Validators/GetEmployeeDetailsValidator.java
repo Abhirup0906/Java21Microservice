@@ -11,7 +11,7 @@ public class GetEmployeeDetailsValidator extends AbstractValidator<GetEmployeeDe
         setPropertyOnContext(GetEmployeeDetails.class.getName());
 
         ruleFor(GetEmployeeDetails::getEmployeeId).must((x) -> {
-            return true;
+            return x >= 0;
         }).withMessage("Employee Id must be greater than 0.");
     }
 }

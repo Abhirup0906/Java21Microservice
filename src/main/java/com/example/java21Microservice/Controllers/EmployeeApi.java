@@ -18,19 +18,26 @@ public class EmployeeApi {
 
     @Autowired
     AbstractBaseAr<GetEngineerByType, List<EmployeeDetails>> getEngineerByTypeSvc;
+
+    @Autowired
     AbstractBaseAr<GetEmployeeDetails, List<EmployeeDetails>> getEmployeeDetailsSvc;
 
 
     @GetMapping("/getDevelopmentEngineer")
-    public List<EmployeeDetails> getDevelopmentEngineer(@PathVariable String jobTitle) {
+    public List<EmployeeDetails> getDevelopmentEngineer(String jobTitle) {
 
         return getEngineerByTypeSvc.handler(new GetEngineerByType(jobTitle));
     }
 
     @GetMapping("/getEmployeeDetails")
-    public List<EmployeeDetails> getEmployeeDetails(@PathVariable Optional<Integer> employeeId) {
+    public List<EmployeeDetails> getEmployeeDetails(Optional<Integer> employeeId) {
         var request = new GetEmployeeDetails();
-        employeeId.ifPresent(request::setEmployeeId);
+        if (employeeId.isPresent()) {
+            request.setEmployeeId(employeeId.get());
+        }
+        else {
+            request.setEmployeeId(0);
+        }
         return getEmployeeDetailsSvc.handler(request);
     }
 }
